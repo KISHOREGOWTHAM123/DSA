@@ -31,3 +31,23 @@ def gcd_method_3(num1: int, num2: int) -> int:
     return cf
 
 print(gcd_method_3(24, 50)) # 2
+
+# recursive method to solve gcd
+def gcd_method_4(num1: int, num2: int) -> int:
+    a, b = max(num1, num2), min(num1, num2)
+    if a % b == 0:
+        return b
+    else:
+        return gcd_method_4(b, a - b)
+
+print(gcd_method_4(5, 100)) # 5
+
+# Euclid's Method (most optimized way)
+def gcd_method_5(num1: int, num2: int) -> int:
+    a, b = max(num1, num2), min(num1, num2)
+    if a % b == 0:
+        return b
+    else:
+        return gcd_method_4(b, a % b)
+
+print(gcd_method_4(1234, 4321)) # 1
